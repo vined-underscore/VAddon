@@ -1,0 +1,31 @@
+{
+  "schemaVersion": 1,
+  "id": "vaddon",
+  "version": "${version}",
+  "name": "VAddon",
+  "description": "Very funny addon",
+  "authors": [
+    "vined_"
+  ],
+  "contact": {
+    "repo": "https://github.com/vined-underscore"
+  },
+  "icon": "assets/template/icon.png",
+  "environment": "client",
+  "entrypoints": {
+    "meteor": [
+      "org.vined.vaddon.VAddon"
+    ]
+  },
+  "mixins": [
+    "vaddon.mixins.json"
+  ],
+  "custom": {
+    "meteor-client:color": "136,79,192"
+  },
+  "depends": {
+    "java": ">=17",
+    "minecraft": ">=${mc_version}",
+    "meteor-client": "*"
+  }
+}
