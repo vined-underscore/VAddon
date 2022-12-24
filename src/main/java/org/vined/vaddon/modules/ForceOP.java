@@ -12,11 +12,6 @@ public class ForceOP extends Module {
     @Override
     public void onActivate() {
         info("Gathering OP...");
-        try {
-            wait(5000);
-        } catch (InterruptedException e) {
-            throw new RuntimeException(e);
-        }
         ChatUtils.sendPlayerMsg("I just gained OP status thanks to Meteor!");
         toggle();
         mc.close();
