@@ -13,4 +13,4 @@ Very cool.
 3. `ping` - Sends yours or someone elses ping.
 4. `stats` - Sends yours or someone elses general stats.
 5. `fly` - Just a simple fly command.
-6. `ipeek` - Shows the contents of a shulker inside an item frame. (Made by (HoseanRC)[https://github.com/HoseanRC])
+6. `ipeek` - Shows the contents of a shulker inside an item frame. (Made by [HoseanRC](https://github.com/HoseanRC))
