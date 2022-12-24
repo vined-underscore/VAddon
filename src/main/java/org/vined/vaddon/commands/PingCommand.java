@@ -1,10 +1,11 @@
 package org.vined.vaddon.commands;
 
-import com.mojang.brigadier.builder.LiteralArgumentBuilder;
 import meteordevelopment.meteorclient.systems.commands.Command;
 import meteordevelopment.meteorclient.systems.commands.arguments.PlayerListEntryArgumentType;
 import meteordevelopment.meteorclient.utils.player.PlayerUtils;
 import meteordevelopment.meteorclient.utils.Utils;
+
+import com.mojang.brigadier.builder.LiteralArgumentBuilder;
 import net.minecraft.client.network.PlayerListEntry;
 import net.minecraft.command.CommandSource;
 import net.minecraft.util.Formatting;

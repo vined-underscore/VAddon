@@ -1,22 +1,36 @@
 package org.vined.vaddon.modules;
 
+import org.vined.vaddon.utils.Utils;
+import org.vined.vaddon.VAddon;
+
 import meteordevelopment.meteorclient.events.game.GameLeftEvent;
 import meteordevelopment.meteorclient.events.game.OpenScreenEvent;
 import meteordevelopment.meteorclient.events.packets.PacketEvent;
+import meteordevelopment.meteorclient.settings.*;
+import meteordevelopment.meteorclient.settings.Setting;
+import meteordevelopment.meteorclient.settings.SettingGroup;
+import meteordevelopment.meteorclient.events.world.TickEvent;
+import meteordevelopment.orbit.EventHandler;
+import meteordevelopment.meteorclient.systems.modules.Module;
+
 import net.minecraft.client.gui.screen.DisconnectedScreen;
 import net.minecraft.entity.Entity;
 import net.minecraft.network.packet.s2c.play.DeathMessageS2CPacket;
 import net.minecraft.util.Formatting;
-import org.vined.vaddon.VAddon;
-import meteordevelopment.meteorclient.events.world.TickEvent;
-import meteordevelopment.orbit.EventHandler;
-import meteordevelopment.meteorclient.systems.modules.Module;
-import org.vined.vaddon.utils.Utils;
 
 public class StayLocked extends Module {
     public double currentX = 0;
     public double currentY = 0;
     public double currentZ = 0;
+
+    private final SettingGroup sgGeneral = settings.getDefaultGroup();
+
+    private final Setting<Boolean> showCoords = sgGeneral.add(new BoolSetting.Builder()
+        .name("show-coordinates")
+        .description("If to show your coordinates when enabling the module.")
+        .defaultValue(false)
+        .build()
+    );
 
     public StayLocked() {
         super(VAddon.CATEGORY, "stay-locked", "Locks you into your current position.");
@@ -27,8 +41,13 @@ public class StayLocked extends Module {
         currentX = getX();
         currentY = getY();
         currentZ = getZ();
-        String coords = Utils.round(currentX, 1) + " " + Utils.round(currentY, 1) + " " + Utils.round(currentZ, 1);
-        info("You are now locked at " + Formatting.WHITE + coords);
+
+        if (showCoords.get()) {
+            String coords = Utils.round(currentX, 1) + " " + Utils.round(currentY, 1) + " " + Utils.round(currentZ, 1);
+            info("You are now locked at " + Formatting.WHITE + coords);
+        } else {
+            info("You are now locked into position.");
+        }
     }
 
     @Override

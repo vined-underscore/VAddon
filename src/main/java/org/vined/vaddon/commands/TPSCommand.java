@@ -1,9 +1,9 @@
 package org.vined.vaddon.commands;
 
-import com.mojang.brigadier.builder.LiteralArgumentBuilder;
-import meteordevelopment.meteorclient.systems.commands.Command;
-import net.minecraft.command.CommandSource;
 import meteordevelopment.meteorclient.utils.world.TickRate;
+import meteordevelopment.meteorclient.systems.commands.Command;
+import com.mojang.brigadier.builder.LiteralArgumentBuilder;
+import net.minecraft.command.CommandSource;
 import net.minecraft.util.Formatting;
 
 

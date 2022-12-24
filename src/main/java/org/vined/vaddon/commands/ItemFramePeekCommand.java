@@ -2,10 +2,11 @@
 
 package org.vined.vaddon.commands;
 
+import meteordevelopment.meteorclient.utils.Utils;
+import meteordevelopment.meteorclient.systems.commands.Command;
+
 import com.mojang.brigadier.builder.LiteralArgumentBuilder;
 import com.mojang.brigadier.context.CommandContext;
-import meteordevelopment.meteorclient.systems.commands.Command;
-import meteordevelopment.meteorclient.utils.Utils;
 import net.minecraft.command.CommandSource;
 import net.minecraft.entity.decoration.ItemFrameEntity;
 import net.minecraft.item.ItemStack;

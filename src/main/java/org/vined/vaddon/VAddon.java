@@ -2,15 +2,17 @@ package org.vined.vaddon;
 
 import meteordevelopment.meteorclient.systems.modules.Category;
 import meteordevelopment.meteorclient.systems.modules.Modules;
-import org.vined.vaddon.commands.*;
-import com.mojang.logging.LogUtils;
 import meteordevelopment.meteorclient.addons.MeteorAddon;
 import meteordevelopment.meteorclient.systems.commands.Commands;
+
 import org.slf4j.Logger;
+import org.vined.vaddon.commands.*;
 import org.vined.vaddon.modules.ForceOP;
 import org.vined.vaddon.modules.FidgetSpinner;
 import org.vined.vaddon.modules.NoGravity;
 import org.vined.vaddon.modules.StayLocked;
+
+import com.mojang.logging.LogUtils;
 
 public class VAddon extends MeteorAddon {
     public static final Logger LOG = LogUtils.getLogger();

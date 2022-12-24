@@ -1,7 +1,8 @@
 package org.vined.vaddon.commands;
 
-import com.mojang.brigadier.builder.LiteralArgumentBuilder;
 import meteordevelopment.meteorclient.systems.commands.Command;
+
+import com.mojang.brigadier.builder.LiteralArgumentBuilder;
 import net.minecraft.command.CommandSource;
 import net.minecraft.entity.player.PlayerAbilities;
 import net.minecraft.util.Formatting;
@@ -19,6 +20,7 @@ public class FlyCommand extends Command {
             assert mc.player != null;
             PlayerAbilities abilities = mc.player.getAbilities();
             boolean isFlying = abilities.flying;
+
             if (isFlying) {
                 abilities.flying = false;
                 abilities.allowFlying = false;
