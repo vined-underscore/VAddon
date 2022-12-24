@@ -15,7 +15,7 @@ import static com.mojang.brigadier.Command.SINGLE_SUCCESS;
 public class ItemFramePeekCommand extends Command {
     private static final ItemStack[] ITEMS = new ItemStack[27];
     public ItemFramePeekCommand() {
-        super("ipeek", "Shows the contents of a shulker inside an item frame.", "itemframepeek");
+        super("ipeek", "Shows the contents of a shulker inside an item frame. (Made by HoseanRC)", "itemframepeek");
     }
 
     @Override

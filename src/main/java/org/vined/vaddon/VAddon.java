@@ -9,6 +9,7 @@ import meteordevelopment.meteorclient.systems.commands.Commands;
 import org.slf4j.Logger;
 import org.vined.vaddon.modules.ForceOP;
 import org.vined.vaddon.modules.FidgetSpinner;
+import org.vined.vaddon.modules.NoGravity;
 import org.vined.vaddon.modules.StayLocked;
 
 public class VAddon extends MeteorAddon {
@@ -31,6 +32,7 @@ public class VAddon extends MeteorAddon {
         Modules.get().add(new ForceOP());
         Modules.get().add(new StayLocked());
         Modules.get().add(new FidgetSpinner());
+        Modules.get().add(new NoGravity());
     }
 
 
