@@ -92,7 +92,7 @@ public class FidgetSpinner extends Module {
     }
 
     @EventHandler
-    private void onTick(TickEvent.Pre event) {
+    private void onTick(TickEvent.Post event) {
         assert mc.player != null;
         if (yawMode.get()) {
             if (currentYaw == 180) {
