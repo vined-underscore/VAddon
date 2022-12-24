@@ -12,7 +12,7 @@ import org.vined.vaddon.VAddon;
 
 public class FidgetSpinner extends Module {
 
-    private final SettingGroup sgModeSpeeds = settings.createGroup("Modes Speed");
+    private final SettingGroup sgModeSpeeds = settings.createGroup("Mode Speed");
     private final SettingGroup sgModes = settings.createGroup("Spin Modes");
 
     private final Setting<Integer> pitchSpeed = sgModeSpeeds.add(new IntSetting.Builder()
