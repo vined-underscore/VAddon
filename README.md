@@ -6,6 +6,7 @@ Very cool.
 1. `ForceOP` - This reallly gives you operator on any server!!
 2. `Stay Locked` - Locks you into position.
 3. `FidgetSpinner` - Makes you a fidget spinner.
+3. `NoGravity` - The name describes what it does. (most likely won't work on any servers with a good AC)
 
 # Commands
 1. `uuid` - Sends yours or someone elses UUID. (I know this is in Meteorist already but I dont care)
