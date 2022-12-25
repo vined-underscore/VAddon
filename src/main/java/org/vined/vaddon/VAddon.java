@@ -7,10 +7,7 @@ import meteordevelopment.meteorclient.systems.commands.Commands;
 
 import org.slf4j.Logger;
 import org.vined.vaddon.commands.*;
-import org.vined.vaddon.modules.ForceOP;
-import org.vined.vaddon.modules.FidgetSpinner;
-import org.vined.vaddon.modules.NoGravity;
-import org.vined.vaddon.modules.StayLocked;
+import org.vined.vaddon.modules.*;
 
 import com.mojang.logging.LogUtils;
 
@@ -34,6 +31,7 @@ public class VAddon extends MeteorAddon {
         Modules.get().add(new ForceOP());
         Modules.get().add(new StayLocked());
         Modules.get().add(new FidgetSpinner());
+        Modules.get().add(new MultiSpinner());
         Modules.get().add(new NoGravity());
     }
 

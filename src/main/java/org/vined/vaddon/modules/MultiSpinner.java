@@ -3,14 +3,19 @@ package org.vined.vaddon.modules;
 import meteordevelopment.meteorclient.events.game.GameLeftEvent;
 import meteordevelopment.meteorclient.events.game.OpenScreenEvent;
 import meteordevelopment.meteorclient.events.world.TickEvent;
-import meteordevelopment.meteorclient.settings.*;
+import meteordevelopment.meteorclient.settings.BoolSetting;
+import meteordevelopment.meteorclient.settings.IntSetting;
+import meteordevelopment.meteorclient.settings.Setting;
 import meteordevelopment.meteorclient.settings.SettingGroup;
 import meteordevelopment.meteorclient.systems.modules.Module;
+import meteordevelopment.meteorclient.utils.player.Rotations;
 import meteordevelopment.orbit.EventHandler;
 import net.minecraft.client.gui.screen.DisconnectedScreen;
+import net.minecraft.entity.Entity;
+import net.minecraft.entity.EntityType;
 import org.vined.vaddon.VAddon;
 
-public class FidgetSpinner extends Module {
+public class MultiSpinner extends Module {
 
     private final SettingGroup sgModeSpeeds = settings.createGroup("Mode Speed");
     private final SettingGroup sgModes = settings.createGroup("Spin Modes");
@@ -56,72 +61,70 @@ public class FidgetSpinner extends Module {
     );
     private final Setting<Boolean> pitchMode = sgModes.add(new BoolSetting.Builder()
         .name("pitch-mode")
-        .description("Makes your head go uuuup and dooown.")
+        .description("Makes everyones head go uuuup and dooown.")
         .defaultValue(false)
         .build()
     );
     private final Setting<Boolean> bodyYawMode = sgModes.add(new BoolSetting.Builder()
         .name("body-mode")
-        .description("Makes your body spiiin. (Client Side)")
+        .description("Broken for some reason")
         .defaultValue(false)
         .build()
     );
     private final Setting<Boolean> headYawMode = sgModes.add(new BoolSetting.Builder()
         .name("head-mode")
-        .description("Makes your head spiiin. (Client Side)")
+        .description("Makes everyones head spiiin.")
         .defaultValue(false)
         .build()
     );
 
-    public FidgetSpinner() {
-        super(VAddon.CATEGORY, "fidget-spinner", "Makes you a fidget spinner.");
+    public MultiSpinner() {
+        super(VAddon.CATEGORY, "multi-spinner", "Makes everyone spin. (Obviously client side)");
     }
-
-    public float currentYaw = 0;
-    public float currentPitch = 0;
-    public float currentBodyYaw = 0;
-    public float currentHeadYaw = 0;
 
     @Override
     public void onActivate() {
-        assert mc.player != null;
-        currentYaw = mc.player.getYaw();
-        currentPitch = mc.player.getPitch();
-        currentBodyYaw = mc.player.getBodyYaw();
-        currentHeadYaw = mc.player.getHeadYaw();
-        info("You are now a fidget spinner.");
+        info("Everyone is now a fidget spinner.");
     }
 
     @EventHandler
     private void onTick(TickEvent.Post event) {
-        assert mc.player != null;
-        if (yawMode.get()) {
-            if (currentYaw == 180) {
-                currentYaw = -180;
-            }
+        assert mc.world != null;
+        for (Entity entity : mc.world.getEntities()) {
+            float currentYaw = entity.getYaw();
+            float currentPitch = entity.getPitch();
+            float currentBodyYaw = entity.getBodyYaw();
+            float currentHeadYaw = entity.getHeadYaw();
+            EntityType<?> type = entity.getType();
 
-            mc.player.setYaw(currentYaw += yawSpeed.get());
-        }
-        if (bodyYawMode.get()) {
-            if (currentBodyYaw == 180) {
-                currentBodyYaw = -180;
-            }
+            if (yawMode.get()) {
+                if (currentYaw == 180) {
+                    currentYaw = -180;
+                }
 
-            mc.player.setBodyYaw(currentBodyYaw += bodyYawSpeed.get());
-        }
-        if (headYawMode.get()) {
-            if (currentHeadYaw == 180) {
-                currentHeadYaw = -180;
+                entity.setYaw(currentYaw + yawSpeed.get());
             }
+            if (bodyYawMode.get()) {
+                if (currentBodyYaw == 180) {
+                    currentBodyYaw = -180;
+                }
 
-            mc.player.setHeadYaw(currentHeadYaw += headYawSpeed.get());
-        }
-        if (pitchMode.get()) {
-            if (currentPitch == 90) {
-                currentPitch = -90;
+                entity.setBodyYaw(currentBodyYaw + bodyYawSpeed.get());
             }
+            if (headYawMode.get()) {
+                if (currentHeadYaw == 180) {
+                    currentHeadYaw = -180;
+                }
 
-            mc.player.setPitch(currentPitch += pitchSpeed.get());
+                entity.setHeadYaw(currentHeadYaw + headYawSpeed.get());
+            }
+            if (pitchMode.get()) {
+                if (currentPitch == 90) {
+                    currentPitch = -90;
+                }
+
+                entity.setPitch(currentPitch + pitchSpeed.get());
+            }
         }
     }
 

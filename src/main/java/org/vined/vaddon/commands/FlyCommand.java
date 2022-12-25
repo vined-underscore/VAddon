@@ -11,7 +11,7 @@ import static com.mojang.brigadier.Command.SINGLE_SUCCESS;
 
 public class FlyCommand extends Command {
     public FlyCommand() {
-        super("fly", "Makes you float to the clouds!");
+        super("fly", "Makes you fly. (not really)");
     }
 
     @Override

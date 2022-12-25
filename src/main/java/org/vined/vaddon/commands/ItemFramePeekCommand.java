@@ -7,6 +7,7 @@ import meteordevelopment.meteorclient.systems.commands.Command;
 
 import com.mojang.brigadier.builder.LiteralArgumentBuilder;
 import com.mojang.brigadier.context.CommandContext;
+import net.minecraft.block.entity.ShulkerBoxBlockEntity;
 import net.minecraft.command.CommandSource;
 import net.minecraft.entity.decoration.ItemFrameEntity;
 import net.minecraft.item.ItemStack;
