@@ -6,6 +6,7 @@ Very cool.
 1. `ForceOP` - This reallly gives you operator on any server!!
 2. `Stay Locked` - Locks you into position.
 3. `FidgetSpinner` - Makes you a fidget spinner.
+4. `MultiSpinner` - Makes everyone and everything a fidget spinner. (Client side and some modes don't work on some entities)
 3. `NoGravity` - The name describes what it does. (most likely won't work on any servers with a good AC)
 
 # Commands
