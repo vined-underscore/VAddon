@@ -33,6 +33,8 @@ public class VAddon extends MeteorAddon {
         Modules.get().add(new FidgetSpinner());
         Modules.get().add(new MultiSpinner());
         Modules.get().add(new NoGravity());
+        Modules.get().add(new PacketLogger());
+        Modules.get().add(new Freeze());
     }
 
 
