@@ -95,7 +95,6 @@ public class MultiSpinner extends Module {
             float currentPitch = entity.getPitch();
             float currentBodyYaw = entity.getBodyYaw();
             float currentHeadYaw = entity.getHeadYaw();
-            EntityType<?> type = entity.getType();
 
             if (yawMode.get()) {
                 if (currentYaw == 180) {
